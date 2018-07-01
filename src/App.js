@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
+import MemoWriteForm from './components/Memo-Write-Form';
 
 class App extends Component {
   render() {
     return (
-      <div>
-      시작한다
-      </div>
+      <main className = "Form">
+        <div className = "Memo-Info">
+        </div>
+        <div className = "Memo-Write">
+        <MemoWriteForm>
+        </MemoWriteForm>
+        </div>
+      </main>
     );
   }
 }

@@ -1,28 +1,20 @@
-.App {
-  text-align: center;
+.Form {
+  width : 800px;
+  background-color: white;
+  border: 1px solid #e9ecef;
+  margin : 0 auto;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.Memo-Info {
+  display: inline;
+  width : 300px;
+  border-right: 1px solid #e9ecef;
+  float : left;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.Memo-write {
+  display: inline;
+  width : 500px;
+  float : left;
 }
