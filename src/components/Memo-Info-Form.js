@@ -28,4 +28,4 @@ class MemoInfoForm extends Component {
   }
 }
 
-export default MemoForm;
+export default MemoInfoForm;
