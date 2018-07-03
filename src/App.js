@@ -7,7 +7,8 @@ class App extends Component {
 
   render() {
     return (
-      <MemoTemplate info={<Header/>}  write={<Write/>}>
+      <MemoTemplate info={<Header/>} write={<Write/>}
+        item={<MemoItemList/>}>
       </MemoTemplate>
 
     );

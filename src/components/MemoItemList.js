@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import MemoItem from './MemoItem';
 
 class MemoItemList extends Component {
   render() {
-    const { todos } = this.props;
+    const { todos, onToggle, onRemove } = this.props;
 
     return (
       <div>
-        <MemoItem text="안녕"/>
-        <MemoItem text="안녕"/>
-        <MemoItem text="안녕"/>
+        <MemoItemList text = "안녕"/>
+        <MemoItemList text = "안녕"/>
+        <MemoItemList text = "안녕"/>
       </div>
     );
   }
