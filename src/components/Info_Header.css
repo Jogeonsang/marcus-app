@@ -1,0 +1,34 @@
+.Header {
+  width:300px;
+  height: 50px;
+  border-bottom: 1px solid #EDEDEF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Header input {
+  width : 230px;
+  height: 30px;
+  border: 1px solid #EDEDEF;
+  border-radius: 5px;
+  margin-left: 0.5rem;
+  outline: none;
+}
+
+.Header .create-button {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #DC494E;
+  border-radius: 1px;
+  color: white;
+  font-size: 10px;
+  cursor: pointer;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 3;
+}
+
+.create-button:hover {
+  background: #fa5252;
+}

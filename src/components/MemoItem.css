@@ -1,0 +1,11 @@
+
+.memo-Item {
+  width : 300px;
+  height: 50px;
+  border-bottom: 1px solid #EDEFEF;
+  padding: 1rem;
+  display: flex;
+  align-items: center; /* 세로 가운데 정렬 */
+  cursor: pointer;
+  
+}

@@ -1,52 +1,28 @@
-.Form {
-  width : 800px;
-  background-color: #FDFAFE;
-  border: 1px solid #EDEDEF;
-  margin : 0 auto;
-  height: 500px;
-  margin-top: 9rem;
+.App {
+  text-align: center;
 }
 
-.Memo-Info {
-  display: inline;
-  height: 500px;
-  width: 300px;
-  border-right: 1px solid #EDEDEF;
-  float : left;
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
 }
 
-.Memo-Info .Serch-bar {
-  width:300px;
-  height: 50px;
-  border-bottom: 1px solid #EDEDEF;
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
 }
 
-.Serch-bar input {
-  width : 230px;
-  height: 30px;
-  border: 1px solid #EDEDEF;
-  border-radius: 5px;
-  margin-left: 1rem;
-  margin-top: 7px;
-}
-.Memo-Item {
-  padding: 0;
-}
-.Memo-Item ul, li{
-  width : 300px;
-  height: 50px;
-  border-bottom: 1px solid #EDEFEF;
-  list-style: none;
+.App-title {
+  font-size: 1.5em;
 }
 
-
-.Memo-write {
-  display: inline;
-  height:  500px;
-  width: 500px;
-  float : left;
-  border-left: 1px solid #EDEDEF;
+.App-intro {
+  font-size: large;
 }
 
-.Memo-Write .MemoWriteForm {
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

@@ -1,0 +1,24 @@
+.Memo-template {
+  width : 800px;
+  background-color: #FDFAFE;
+  border: 1px solid #EDEDEF;
+  margin : 0 auto;
+  height: 500px;
+  margin-top: 9rem;
+}
+
+.info-wrapper {
+  height: 500px;
+  width: 300px;
+  border-right: 1px solid #EDEDEF;
+  float : left;
+}
+
+
+.write-wrapper {
+  display: inline;
+  height:  500px;
+  width: 490px;
+  float : left;
+  padding-left: 6px;
+}
