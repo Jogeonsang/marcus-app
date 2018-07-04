@@ -15,7 +15,7 @@ class MemoItem extends Component {
           <div>{text}</div>
         </div>
         {
-          checked && (<div className="check-mark">✓</div>)
+          checked && (<div className="check-mark"></div>)
         }
       </div>
     );

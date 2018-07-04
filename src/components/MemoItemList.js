@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
+import MemoItem from './MemoItem';
 
 class MemoItemList extends Component {
   render() {
-    const { todos, onToggle, onRemove } = this.props;
+    const { memos, onToggle, onRemove } = this.props;
+
+    const memoList = memos.map(
+      ({id, text, checked}) => (
+        <MemoItem
+          id={id}
+          text={text}
+          checked={checked}
+          onToggle={onToggle}
+          onRemove={onRemove}
+          key={id}
+        />
+      )
+    );
 
     return (
       <div>
-        <MemoItemList text = "안녕"/>
-        <MemoItemList text = "안녕"/>
-        <MemoItemList text = "안녕"/>
+        {memoList}
       </div>
     );
   }
