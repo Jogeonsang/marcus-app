@@ -5,11 +5,11 @@
   align-items: center; /* 세로 가운데 정렬 */
   cursor: pointer;
   transition: all 0.15s;
-  user-select: none;
 }
 
 .memo-item:hover {
   background: white;
+  border-bottom: 1px solid #e64980;
 }
 
 /* todo-item 에 마우스가 있을때만 .remove 보이기 */
@@ -22,7 +22,9 @@
   border-top: 1px solid #f1f3f5;
 }
 
-
+.selected {
+  border-top: 1px solid #e64980;
+}
 .remove {
   margin-right: 1rem;
   color: #e64980;

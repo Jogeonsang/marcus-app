@@ -29,7 +29,7 @@ class App extends Component {
       // concat을 사용하여 배열에 추가
       memos: memos.concat({
         id : this.id++,
-        text : input,
+        text : '',
         checked: false
       })
     });
@@ -42,25 +42,13 @@ class App extends Component {
     }
   }
 
-  handleToggle = (id) => {
+  handleWrite = (id) => {
+    console.log(id);
     const { memos } = this.state;
+    const index = memos.findIndex(todo => todo.id === id);
 
-    // 파라미터로 받은 id 값을 가지고 몇번째 아이템인지 찾습니다.
-    const index = memos.findIndex(memo => memo.id === id);
-    const selected = memos[index]; //선택한 객체
-
-    const nextMemos = [...memos]; //배열을 복사
-
-    // 기존의 값들을 복사하고, checked 값을 덮어쓰기
-    nextMemos[index] = {
-      ...selected,
-      checked: !selected.checked
-    };
-
-  this.setState({
-    meoms : nextMemos
-  });
-}
+    const selected = memos[index];
+  }
 
   handleRemove = (id) => {
     const { memos } = this.state;
@@ -75,8 +63,8 @@ class App extends Component {
       handleChange,
       handleCreate,
       handleKeyPress,
-      handleToggle,
-      handleRemove
+      handleRemove,
+      handleWrite
     } = this;
 
     return (
@@ -88,12 +76,17 @@ class App extends Component {
         write={(
           <Write
             value = {input}
-            onKeyPress = {handleKeyPress}
             onChange = {handleChange}
-            onToggle = {handleToggle}
+            memos={memos}
             />
           )}
-      item={<MemoItemList memos={memos} onToggle={handleToggle} onRemove={handleRemove}/>}>
+      item={
+      <MemoItemList
+        memos={memos}
+        onWrite={handleWrite}
+        onRemove={handleRemove}
+      />}>
+
       </MemoTemplate>
     );
   }

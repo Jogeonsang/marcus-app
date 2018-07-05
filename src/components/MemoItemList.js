@@ -3,7 +3,7 @@ import MemoItem from './MemoItem';
 
 class MemoItemList extends Component {
   render() {
-    const { memos, onToggle, onRemove } = this.props;
+    const { memos, onWrite, onRemove } = this.props;
 
     const memoList = memos.map(
       ({id, text, checked}) => (
@@ -11,7 +11,7 @@ class MemoItemList extends Component {
           id={id}
           text={text}
           checked={checked}
-          onToggle={onToggle}
+          onWrite={onWrite}
           onRemove={onRemove}
           key={id}
         />
