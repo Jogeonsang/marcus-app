@@ -13,7 +13,8 @@ class App extends Component {
       { id: 0, text: 'Hello', checked: false },
       { id: 1, text: 'Welcome to', checked: true },
       { id: 2, text: 'Marcusapp', checked: false }
-    ]
+    ],
+    selectedContent : ''
   }
 
   handleChange = (e) => {
@@ -46,8 +47,10 @@ class App extends Component {
     console.log(id);
     const { memos } = this.state;
     const index = memos.findIndex(todo => todo.id === id);
-
     const selected = memos[index];
+    this.setState({
+      selectedContent : selected
+    })
   }
 
   handleRemove = (id) => {
@@ -58,7 +61,7 @@ class App extends Component {
   }
 
   render() {
-    const { input, memos } = this.state;
+    const { input, memos,selectedContent } = this.state;
     const {
       handleChange,
       handleCreate,
@@ -78,6 +81,7 @@ class App extends Component {
             value = {input}
             onChange = {handleChange}
             memos={memos}
+            selectedContent={selectedContent}
             />
           )}
       item={

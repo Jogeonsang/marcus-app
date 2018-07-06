@@ -1,10 +1,11 @@
 import React from 'react';
 import './MemoWrite.css';
 
-const MemoWrite = ({value, onChange}) => {
+const MemoWrite = ({value, onChange,selectedContent}) => {
+console.log(selectedContent)
   return (
     <div className="Write">
-      <input placeholder = "title" value={value} onChange={onChange}/>
+      <input value={selectedContent.text} onChange={onChange} />
     </div>
   );
 };
