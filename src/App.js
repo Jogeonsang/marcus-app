@@ -18,10 +18,12 @@ class App extends Component {
   }
 
   handleChange = (e) => {
+    const { memos,input } =this.state;
     this.setState({
-      input: e.target.value // input의 다음 바뀔 값
-    });
-  }
+      [input] : e.target.value,
+      ...memos.text
+      })
+    };
 
   handleCreate = () => {
     const { input, memos } = this.state;
@@ -60,6 +62,8 @@ class App extends Component {
     });
   }
 
+
+
   render() {
     const { input, memos,selectedContent } = this.state;
     const {
@@ -89,6 +93,7 @@ class App extends Component {
         memos={memos}
         onWrite={handleWrite}
         onRemove={handleRemove}
+        onChange={handleChange}
       />}>
 
       </MemoTemplate>
