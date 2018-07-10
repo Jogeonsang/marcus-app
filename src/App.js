@@ -18,22 +18,26 @@ class App extends Component {
   }
 
   handleChange = e => {
-    const { memos, input, selectedContent } = this.state;
+    const { memos, input } = this.state;
+    const { target: { value, name } } = e;
 
-    const newMemos = memos.map(memo => {
-      if (memo.id == selectedContent.id) {
-        memo.text = e.target.value;
-      }
-      return memo;
-    });
+    const memo = memos.filter(memo => memo.id === Number(name));
 
-    this.setState({
-      memos: newMemos
-      // input: e.target.value,
-      // ...memos.text
+    const prevMemos = memos.filter(memo => memo.id !== Number(name));
+
+    memo[0].text = value;
+
+    this.setState(prevState => {
+      return Object.assign(
+        {},
+        {
+          memos: [...memo, ...prevMemos]
+        }
+      );
     });
   };
 
+  
   handleCreate = () => {
     const { input, memos } = this.state;
     this.setState({
