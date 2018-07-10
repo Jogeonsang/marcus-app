@@ -17,13 +17,22 @@ class App extends Component {
     selectedContent : ''
   }
 
-  handleChange = (e) => {
-    const { memos,input } =this.state;
+  handleChange = e => {
+    const { memos, input, selectedContent } = this.state;
+
+    const newMemos = memos.map(memo => {
+      if (memo.id == selectedContent.id) {
+        memo.text = e.target.value;
+      }
+      return memo;
+    });
+
     this.setState({
-      [input] : e.target.value,
-      ...memos.text
-      })
-    };
+      memos: newMemos
+      // input: e.target.value,
+      // ...memos.text
+    });
+  };
 
   handleCreate = () => {
     const { input, memos } = this.state;

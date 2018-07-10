@@ -5,7 +5,7 @@ const MemoWrite = ({value, onChange,selectedContent,memos}) => {
   console.log(selectedContent);
   return (
     <div className="Write">
-      <input value={selectedContent.text} onChange={this.onChange}  />
+      <input type="memos.text" value={selectedContent.text} onChange={e => onChange(e)}  />
     </div>
   );
 };
