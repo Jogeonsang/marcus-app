@@ -5,7 +5,8 @@ const Header = ({ onCreate }) => {
   return (
     <div className="Header">
       <input
-      placeholder = "    검색"/>
+        placeholder = "메모 검색"
+      />
       <div className="create-button" onClick={onCreate}>
         추가
       </div>

@@ -14,7 +14,8 @@ class App extends Component {
       { id: 1, text: 'Welcome to', checked: true },
       { id: 2, text: 'Marcusapp', checked: false }
     ],
-    selectedContent : ''
+    selectedContent : '',
+    Keyword : ''
   }
 
   handleChange = e => {
@@ -37,7 +38,6 @@ class App extends Component {
     });
   };
 
-  
   handleCreate = () => {
     const { input, memos } = this.state;
     this.setState({
@@ -84,7 +84,8 @@ class App extends Component {
       handleCreate,
       handleKeyPress,
       handleRemove,
-      handleWrite
+      handleWrite,
+      handleKeyword
     } = this;
 
     return (
@@ -92,6 +93,7 @@ class App extends Component {
         info={(
           <Header
             onCreate = {handleCreate}
+            onKeyword = {handleKeyword}
           />)}
         write={(
           <Write
