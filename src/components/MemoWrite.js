@@ -4,7 +4,7 @@ import './MemoWrite.css';
 const MemoWrite = ({value, onChange,selectedContent }) => {
   return (
     <div className="Write">
-      <input
+      <textarea
         placeholder="title"
         name={selectedContent.id}
         value={selectedContent.text}
