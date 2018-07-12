@@ -18,7 +18,7 @@ class App extends Component {
     Keyword : ''
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     const { memos, input } = this.state;
     const { target: { value, name } } = e;
 
@@ -46,7 +46,7 @@ class App extends Component {
       memos: memos.concat({
         id : this.id++,
         text : '',
-        checked: false
+        checked: true
       })
     });
   }
@@ -61,8 +61,9 @@ class App extends Component {
   handleWrite = (id) => {
     console.log(id);
     const { memos } = this.state;
-    const index = memos.findIndex(todo => todo.id === id);
+    const index = memos.findIndex(memo => memo.id === id);
     const selected = memos[index];
+
     this.setState({
       selectedContent : selected
     })
@@ -75,8 +76,6 @@ class App extends Component {
     });
   }
 
-
-
   render() {
     const { input, memos,selectedContent } = this.state;
     const {
@@ -85,7 +84,8 @@ class App extends Component {
       handleKeyPress,
       handleRemove,
       handleWrite,
-      handleKeyword
+      handleKeyword,
+      handleSelect
     } = this;
 
     return (
@@ -109,6 +109,7 @@ class App extends Component {
         onWrite={handleWrite}
         onRemove={handleRemove}
         onChange={handleChange}
+        onSelect={handleSelect}
       />}>
 
       </MemoTemplate>

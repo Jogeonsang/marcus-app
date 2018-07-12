@@ -9,7 +9,6 @@
 
 .memo-item:hover {
   background: white;
-  border-left: 5px solid #DC494E;
 }
 
 /* todo-item 에 마우스가 있을때만 .remove 보이기 */
@@ -32,4 +31,8 @@
 .memo-text {
   flex: 1; /* 체크, 엑스를 제외한 공간 다 채우기 */
   word-break: break-all;
+}
+
+.select {
+  border-left: 5px solid #DC494E;
 }
