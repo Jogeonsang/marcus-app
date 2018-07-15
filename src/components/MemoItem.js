@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './MemoItem.css';
+import LinesEllipsis from 'react-lines-ellipsis'
 
 class MemoItem extends Component {
   render() {
@@ -12,13 +13,19 @@ class MemoItem extends Component {
           onRemove(id)}
         }>&times;</div>
         <div className={`memo-text ${checked && 'checked'}`}>
-          <div>{text}</div>
+          <div><LinesEllipsis
+            text={text}
+            maxLine='2'
+            ellipsis='...'
+            trimRight
+            basedOn='letters'
+            /></div>
         </div>
         {
           checked && (<div className="checked-mark"></div>)
         }
         <div className="select" onClick={() => onSelect(id)}>
-            
+
         </div>
       </div>
     );

@@ -10,9 +10,9 @@ class App extends Component {
   state = {
     input : '',
     memos : [
-      { id: 0, text: 'Hello', checked: false },
-      { id: 1, text: 'Welcome to', checked: true },
-      { id: 2, text: 'Marcusapp', checked: false }
+      { id: 0, text: '안녕하세요!', checked: false },
+      { id: 1, text: 'Marcus Memo App 입니다.', checked: false },
+      { id: 2, text: '편안하게 무언가 적어보세요!', checked: false }
     ],
     selectedContent : '',
     Keyword : ''
@@ -40,6 +40,7 @@ class App extends Component {
 
   handleCreate = () => {
     const { input, memos } = this.state;
+
     this.setState({
       input: '', // input을 비우고
       // concat을 사용하여 배열에 추가

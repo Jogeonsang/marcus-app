@@ -5,6 +5,7 @@
   align-items: center; /* 세로 가운데 정렬 */
   cursor: pointer;
   transition: all 0.15s;
+  height: 20px;
 }
 
 .memo-item:hover {
