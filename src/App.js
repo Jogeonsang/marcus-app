@@ -4,7 +4,6 @@ import Header from './components/Info_Header';
 import MemoItemList from './components/MemoItemList';
 import Write from './components/MemoWrite';
 class App extends Component {
-
   id = 3 // 이미 0,1,2 가 존재하므로 3으로 설정
 
   state = {
@@ -17,6 +16,7 @@ class App extends Component {
     selectedContent : '',
     Keyword : ''
   }
+
 
   handleChange = (e) => {
     const { memos, input } = this.state;

@@ -14,13 +14,14 @@ const initialState = {
 // 리듀서 함수를 정의합니다.
 function memo(state = initialState, action) {
     // 레퍼런스 생성
-    const { memo } = state;
-
+    const { memos, input, index, selected } = state;
+    index = memos.findIndex(memo => memo.id === memo.id)
     switch(action.type) {
 
         case types.CREATE:
             return {
                 memo: [
+                  input: '',
                     ...memo,
                     {
                         id: 0,
@@ -29,6 +30,19 @@ function memo(state = initialState, action) {
                     }
                 ]
             };
+
+          case types.REMOVE:
+            return {
+              memo : memos.filter(memo => memos.id !== memo.id)
+            };
+
+          case types.WRITE:
+            console.log(action)
+            return {
+              index : memos.findIndex(memo => memo.id === memo.id),
+              selected : memo[index]
+            }
+
         default:
             return state;
     }
