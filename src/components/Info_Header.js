@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './Info_Header.css';
 
 const Header = ({ onCreate }) => {
@@ -12,6 +14,14 @@ const Header = ({ onCreate }) => {
       </div>
     </div>
   );
+};
+
+Header.propTypes = {
+  onCreate : PropTypes.func
+};
+
+Header.defaultProps = {
+  onCreate: () => console.warn('onCreate not defined')
 };
 
 export default Header;

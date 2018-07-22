@@ -3,6 +3,10 @@ import MemoTemplate from './components/MemoTemplate';
 import Header from './components/Info_Header';
 import MemoItemList from './components/MemoItemList';
 import Write from './components/MemoWrite';
+
+import { connect } from 'react-redux';
+import * as Actions from './Actions';
+
 class App extends Component {
   id = 3 // 이미 0,1,2 가 존재하므로 3으로 설정
 
@@ -38,7 +42,7 @@ class App extends Component {
     });
   };
 
-  handleCreate = () => {
+/*  handleCreate = () => {
     const { input, memos } = this.state;
 
     this.setState({
@@ -50,7 +54,7 @@ class App extends Component {
         checked: true
       })
     });
-  }
+  } */
 
   handleKeyPress = (e) => {
     // 눌려진 키가 contol+N 이면 handleCreate 호출
@@ -78,7 +82,7 @@ class App extends Component {
   }
 
   render() {
-    const { input, memos,selectedContent } = this.state;
+    const { input, memos,selectedContent, onCreate } = this.state;
     const {
       handleChange,
       handleCreate,
@@ -117,5 +121,8 @@ class App extends Component {
     );
   }
 }
+const mapToDispatch = (dispatch) => ({
+    onCreate: () => dispatch(Actions.create)
+});
 
-export default App;
+export default connect(null, mapToDispatch)(App);

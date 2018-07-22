@@ -1,18 +1,9 @@
-import * as types from './aciton';
+import * as types from './action';
 
-export const create = () => ({
-  type : types.CREATE
-
+export const create = (memos) => ({
+  type : types.CREATE,
+  memos
 });
-
-export const change = () => ({
-  type : types.CHANGE
-})
-
-export const write = (id) => ({
-  type : types.WRITE,
-  memos.id
-})
 
 export const remove = (id) => ({
   type : types.REMOVE,
