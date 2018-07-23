@@ -82,7 +82,8 @@ class App extends Component {
   }
 
   render() {
-    const { input, memos,selectedContent, onCreate } = this.state;
+    const { input, memos,selectedContent } = this.state;
+    const { onCreate } = this.props;
     const {
       handleChange,
       handleCreate,
@@ -97,7 +98,7 @@ class App extends Component {
       <MemoTemplate
         info={(
           <Header
-            onCreate = {handleCreate}
+            onCreate = {onCreate}
             onKeyword = {handleKeyword}
           />)}
         write={(
@@ -122,7 +123,7 @@ class App extends Component {
   }
 }
 const mapToDispatch = (dispatch) => ({
-    onCreate: () => dispatch(Actions.create)
+    onCreate: () => dispatch(Actions.create())
 });
 
 export default connect(null, mapToDispatch)(App);

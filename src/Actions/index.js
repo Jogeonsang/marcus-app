@@ -1,10 +1,11 @@
 import * as types from './action';
 
-export const create = (memos) => ({
+export const create = (memo) => (
+  {
   type : types.CREATE,
-  memos
-});
-
+  memo
+}
+);
 export const remove = (id) => ({
   type : types.REMOVE,
   id

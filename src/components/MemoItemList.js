@@ -27,4 +27,5 @@ class MemoItemList extends Component {
   }
 }
 
+
 export default MemoItemList;

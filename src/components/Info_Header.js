@@ -3,18 +3,19 @@ import PropTypes from 'prop-types';
 
 import './Info_Header.css';
 
-const Header = ({ onCreate }) => {
+const Header = ({ memos,onCreate }) => {
   return (
     <div className="Header">
       <input
         placeholder = "메모 검색"
       />
-      <div className="create-button" onClick={onCreate}>
+      <div className="create-button" onClick={() => onCreate(memos)}>
         추가
       </div>
     </div>
   );
 };
+
 
 Header.propTypes = {
   onCreate : PropTypes.func
