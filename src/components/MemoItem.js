@@ -4,7 +4,7 @@ import LinesEllipsis from 'react-lines-ellipsis'
 
 class MemoItem extends Component {
   render() {
-    const { text, checked, id, onWrite, onRemove,onSelect } = this.props;
+    const { text, checked, id, onWrite, onRemove} = this.props;
 
     return (
       <div className="memo-item" onClick={(e) => onWrite(id)}>
@@ -24,9 +24,6 @@ class MemoItem extends Component {
         {
           checked && (<div className="checked-mark"></div>)
         }
-        <div className="select" onClick={() => onSelect(id)}>
-
-        </div>
       </div>
     );
   }

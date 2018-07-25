@@ -3,9 +3,9 @@ import * as types from '../Actions/action';
 const initialState = {
   input : '',
   memos : [
-    { id: 0, text: '', checked: false }
+    { id: 0, text: '아', checked: false }
   ],
-  selectedContent : '',
+  selectedID : { id: 0, text: '', checked: false },
   Keyword : ''
 }
 
@@ -21,12 +21,26 @@ const memo= (state = initialState, action) => {
               memos: [
                 ...state.memos,
                 {
-                  id : memos.length + 1,
+                  id : memos.length,
                   text : '',
                   checked : false
                 }
               ]
             };
+
+          case types.SELECT:
+          console.log(action.id)
+            return {
+              ...state,
+              selectedID : action.id
+            };
+
+          case types.UPDATE:
+            return {
+              ...state,
+              selectedID : action.value
+              
+            }
         default:
             return state;
     }

@@ -8,91 +8,34 @@ import { connect } from 'react-redux';
 import * as Actions from './Actions';
 
 class App extends Component {
-  id = 3 // 이미 0,1,2 가 존재하므로 3으로 설정
-
-  state = {
-    input : '',
-    memos : [
-      { id: 0, text: '안녕하세요!', checked: false },
-      { id: 1, text: 'Marcus Memo App 입니다.', checked: false },
-      { id: 2, text: '편안하게 무언가 적어보세요!', checked: false }
-    ],
-    selectedContent : '',
-    Keyword : ''
-  }
 
 
   handleChange = (e) => {
-    const { memos, input } = this.state;
-    const { target: { value, name } } = e;
+    const { memos, input } = this.props;
+    const { target: { value } } = e;
 
-    const memo = memos.filter(memo => memo.id === Number(name));
-
-    const prevMemos = memos.filter(memo => memo.id !== Number(name));
-
-    memo[0].text = value;
-
-    this.setState(prevState => {
-      return Object.assign(
-        {},
-        {
-          memos: [...memo, ...prevMemos]
-        }
-      );
-    });
+    this.props.onUpdate(value)
   };
 
-/*  handleCreate = () => {
-    const { input, memos } = this.state;
-
-    this.setState({
-      input: '', // input을 비우고
-      // concat을 사용하여 배열에 추가
-      memos: memos.concat({
-        id : this.id++,
-        text : '',
-        checked: true
-      })
-    });
-  } */
-
-  handleKeyPress = (e) => {
-    // 눌려진 키가 contol+N 이면 handleCreate 호출
-    if(e.key === 'Ctrl+N') {
-      this.handleCreate();
-    }
-  }
-
-  handleWrite = (id) => {
-    console.log(id);
-    const { memos } = this.state;
-    const index = memos.findIndex(memo => memo.id === id);
-    const selected = memos[index];
-
-    this.setState({
-      selectedContent : selected
-    })
-  }
-
   handleRemove = (id) => {
-    const { memos } = this.state;
+    const { memos } = this.props;
     this.setState({
       memos : memos.filter(memo => memo.id !== id)
     });
   }
 
   render() {
-    const { input, memos,selectedContent } = this.state;
-    const { onCreate } = this.props;
+    const { onCreate, memos, input, selectedID, onSelect } = this.props;
     const {
       handleChange,
-      handleCreate,
       handleKeyPress,
       handleRemove,
       handleWrite,
       handleKeyword,
       handleSelect
     } = this;
+
+    const Content = memos.filter(memos => memos.id === memos.id)
 
     return (
       <MemoTemplate
@@ -106,13 +49,13 @@ class App extends Component {
             value = {input}
             onChange = {handleChange}
             memos={memos}
-            selectedContent={selectedContent}
+            selectedID={selectedID}
             />
           )}
       item={
       <MemoItemList
         memos={memos}
-        onWrite={handleWrite}
+        onWrite={onSelect}
         onRemove={handleRemove}
         onChange={handleChange}
         onSelect={handleSelect}
@@ -122,8 +65,17 @@ class App extends Component {
     );
   }
 }
-const mapToDispatch = (dispatch) => ({
-    onCreate: () => dispatch(Actions.create())
+
+// store 안의 state 값을 props 로 연결해줍니다.
+const mapStateToProps = (state) => ({
+    memos: state.memos,
+    selectedID: state.selectedID
 });
 
-export default connect(null, mapToDispatch)(App);
+const mapDispatchToProps = (dispatch) => ({
+    onCreate: () => dispatch(Actions.create()),
+    onSelect: (id) => dispatch(Actions.select(id)),
+    onUpdate: (value) => dispatch(Actions.update(value))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
