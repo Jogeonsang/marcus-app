@@ -11,10 +11,9 @@ class App extends Component {
 
 
   handleChange = (e) => {
-    const { memos, input } = this.props;
+    const { memos, input, selectedID } = this.props;
     const { target: { value } } = e;
-
-    this.props.onUpdate(value)
+    this.props.onUpdate({value, selectedID});
   };
 
   handleRemove = (id) => {
@@ -35,7 +34,6 @@ class App extends Component {
       handleSelect
     } = this;
 
-    const Content = memos.filter(memos => memos.id === memos.id)
 
     return (
       <MemoTemplate
@@ -69,13 +67,14 @@ class App extends Component {
 // store 안의 state 값을 props 로 연결해줍니다.
 const mapStateToProps = (state) => ({
     memos: state.memos,
-    selectedID: state.selectedID
+    selectedID: state.selectedID,
 });
 
 const mapDispatchToProps = (dispatch) => ({
     onCreate: () => dispatch(Actions.create()),
     onSelect: (id) => dispatch(Actions.select(id)),
-    onUpdate: (value) => dispatch(Actions.update(value))
+    onUpdate: (data) => dispatch(Actions.update(data)),
+    onClear : (value) => dispatch(Actions.clear(value))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

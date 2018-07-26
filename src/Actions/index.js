@@ -15,7 +15,12 @@ export const select = (id) => ({
   id
 })
 
-export const update = (value) => ({
+export const update = (data) => ({
   type : types.UPDATE,
+  data
+})
+
+export const clear = (value) => ({
+  type : types.CLEAR,
   value
 })
